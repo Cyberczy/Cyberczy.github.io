@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>数据结构绪论</title>
+      <link href="/post/b06cc6ec.html"/>
+      <url>/post/b06cc6ec.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据结构绪论"><a href="#数据结构绪论" class="headerlink" title="数据结构绪论"></a>数据结构绪论</h1><h2 id="这门课我们学什么？"><a href="#这门课我们学什么？" class="headerlink" title="这门课我们学什么？"></a>这门课我们学什么？</h2><blockquote><p>凭借一句话获得图灵奖的Pascal语言之父——Nicklaus Wirth,让他获得图灵奖的这句话就是他提出的著名公式：<strong>程序&#x3D;数据结构+算法</strong></p><p>这个公式对计算机科学的影响程度足以类似物理学中爱因斯坦的E&#x3D;mc^2</p><p>​————这个公式展示了程序的本质</p></blockquote><p><code>算法</code>其实就是用于解决某一类问题的公式与思想。（给出问题的数学模型）而<code>数据结构</code>就是数据的组织、管理和存储格式，其使用目的是为了高效的访问和修改数据。至于<code>程序</code>就是计算机处理问题的一系列指令。</p><p><strong>程序设计的实质是对确定的问题选择一种好的数据结构，并设计一种好的算法。</strong></p><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p><img src="/../img/shujujiegou/xulun/07beaa43b8f244d9d621fc6b23f8dcabbc53abf0.png@942w_510h_progressive.webp"></p><ul><li><p>数据结构是计算机软件相关专业的<code>专业基础课</code></p></li><li><p>在教学计划中的地位 ：<code>承上启下</code>、核心部分</p><p><img src="/../img/shujujiegou/xulun/04ff17b0b5b8238300c047a4489b817d71ef5ff5.png@737w_425h_progressive.webp"></p></li><li><p>数据结构是介于数学、计算机硬件和计算机软件之间的一门核心课程</p><p><img src="/../img/shujujiegou/xulun/e9b2e882a12d84272b0fc84d3a864deb3f70b02a.png@942w_476h_progressive.webp"></p></li><li><p>类似于武术中的基本功，练武不练功，到头一场空</p></li><li><p>考研必考专业课4门专业课共150分【《数据结构与算法》占45分(更有很多学校只考数据结构与算法)】</p></li><li><p>找工作面试，主要考核的内容</p></li></ul><h2 id="数据结构研究的内容"><a href="#数据结构研究的内容" class="headerlink" title="数据结构研究的内容"></a>数据结构研究的内容</h2><ol><li><p>起初计算机被人们视作数值计算的工具</p></li><li><p>通常用计算精机解决一个问题的步骤：</p></li></ol><ul><li><p>具体问题抽象成数学模型；<br>分析问题；<br>提取操作对象；<br>找出操作对象之间的关系；<br>用数学语言描述&#x3D;&#x3D;&gt;数据结构;【建立相应方程】&lt;一般建立方程容易<code>数据元素之间的关系简单</code>但运算量大，人们就利用计算机来快速的完成复杂的计算&gt;</p></li><li><p>设计算法；</p></li><li><p>编程调试运行</p></li></ul><ol start="3"><li><p>随着计算机应用领域的扩展，计算机被越来越多地用于非数值计算，比如<code>信息的处理</code></p><p><img src="/../img/shujujiegou/xulun/150a30eded7c3b7ccce278ba54cd1b00a731ce44.png@549w_162h_progressive.webp"></p><ul><li>来了一位新同学把他的信息加入到系统中；有同学转学或出国了要把他的信息删除道；想查看某位同学的信息；修改某位同学改名字了在系统中也应相应的修改。<ul><li>操作对象每位学生的信息(姓名、学号、性别、籍贯、专业)</li><li>操作算法：查询、插入、修改、删除等</li><li>操作对象之间的关系线，性关系数据结构线性数据结构线性表</li></ul></li></ul><p><img src="/../img/shujujiegou/xulun/b1c0c58eb4e4813aa6f478af15739635fa09b0b5.png@618w_303h_progressive.webp"></p><ul><li><p>计算机之所以能和人对弈是因为已经将对弈的策略在计算机中存储好。由千对弈的过程是在一定规则下随机进行的，所以，为使计算机能灵活对弈，就必须把对弈过程中所有可能发生的清况及相应的对策都加以考虑</p><ul><li><p>操作对象：各种棋盘格局</p></li><li><p>计算机的算法：根据当前的格局，从提供的派生格局中选择一种。也就是下一步棋，则构成一个新的棋盘格局。</p></li><li><p>操作对象之间的关系：非线性关系(树）</p><p><img src="/../img/shujujiegou/xulun/d670190794d2ddd77e56542acc8fe9a0dfc2b229.png@335w_393h_progressive.webp"></p><ul><li><p>磁盘根目录下有很多子目录及文件，每个子目录里又可以包含多个子目录及文件但每一个子目录只有一个父目录</p><p><img src="/../img/shujujiegou/xulun/4b15a9405a76a4517676ca96c3ea82d8d1acacfe.png@414w_243h_progressive.webp"></p></li><li><p>最短路径问题。从城市A到城市B有多条线路，但每条线路的交通费不同，那么，如何选择一条线路，使得从城市A到城市B的交通费用最少呢？</p></li></ul></li></ul></li></ul></li></ol><p>综上所述：这些问题的共性是:都无法用数学的公式或方程来描述，是一些“非数值计算”的程序设计问题，描述非数值计算问题的数学模型不是数学方程，而是诸如表，树和图之类的具有逻辑关系的数据</p><p>数据结构是一门研究非数值计算的程序设计中计算机的<code>操作对象以及它们之间的关系和操作的学科</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaSE笔记（二）</title>
       <link href="/post/bd30d78.html"/>
       <url>/post/bd30d78.html</url>
