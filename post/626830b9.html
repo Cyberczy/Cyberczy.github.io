@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>数据结构算法与算法分析 | 崽🐏的小屋</title><meta name="keywords" content="数据结构"><meta name="author" content="崽🐏"><meta name="copyright" content="崽🐏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据结构算法与算法分析算法算法定义解决问题的方法和步骤。在计算机中表现为指令的有限序列。其中每条指令表示一个或多个操作。 算法的描述自然语言；流程图【NS图、框图】；伪代码(类C语言)；程序设计(C、Java…)   类C语言介于伪码语言和程序设计语言之间的一种表示形式，保留了C语言的精华，不拘泥于C语言的语法细节，同时也添加了一些C++的成分。 特点:便于理解，阅读能方便地转换成C语言。 程序与">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构算法与算法分析">
+<meta property="og:url" content="https://cyberczy.github.io/post/626830b9.html">
+<meta property="og:site_name" content="崽🐏的小屋">
+<meta property="og:description" content="数据结构算法与算法分析算法算法定义解决问题的方法和步骤。在计算机中表现为指令的有限序列。其中每条指令表示一个或多个操作。 算法的描述自然语言；流程图【NS图、框图】；伪代码(类C语言)；程序设计(C、Java…)   类C语言介于伪码语言和程序设计语言之间的一种表示形式，保留了C语言的精华，不拘泥于C语言的语法细节，同时也添加了一些C++的成分。 特点:便于理解，阅读能方便地转换成C语言。 程序与">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg">
+<meta property="article:published_time" content="2022-08-18T15:22:16.000Z">
+<meta property="article:modified_time" content="2022-08-18T16:24:54.740Z">
+<meta property="article:author" content="崽🐏">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="https://cyberczy.github.io/post/626830b9"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构算法与算法分析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-19 00:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><link href="https://7463-tcb-l3wefjaj54c720-9dkwsfee74c2b-1313273674.tcb.qcloud.la/pio.css" rel="stylesheet" type="text/css"/><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">崽🐏的小屋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据结构算法与算法分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-18T15:22:16.000Z" title="发表于 2022-08-18 23:22:16">2022-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-18T16:24:54.740Z" title="更新于 2022-08-19 00:24:54">2022-08-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数据结构算法与算法分析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="数据结构算法与算法分析"><a href="#数据结构算法与算法分析" class="headerlink" title="数据结构算法与算法分析"></a>数据结构算法与算法分析</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="算法定义"><a href="#算法定义" class="headerlink" title="算法定义"></a>算法定义</h3><p>解决问题的方法和步骤。在计算机中表现为指令的有限序列。其中每条指令表示一个或多个操作。</p>
+<h3 id="算法的描述"><a href="#算法的描述" class="headerlink" title="算法的描述"></a>算法的描述</h3><p>自然语言；流程图【NS图、框图】；伪代码(类C语言)；程序设计(C、Java…) </p>
+<p><img src="/../img/shujujiegou/suanfayusuanfafenxi/d872de217f360b320f131b3adeaf8b2130bca077.png@750w_303h_progressive.webp"></p>
+<p>类C语言介于伪码语言和程序设计语言之间的一种表示形式，保留了C语言的精华，不拘泥于C语言的语法细节，同时也添加了一些C++的成分。</p>
+<p>特点:便于理解，阅读能方便地转换成C语言。</p>
+<h3 id="程序与算法"><a href="#程序与算法" class="headerlink" title="程序与算法"></a>程序与算法</h3><p>程序&#x3D;数据结构+算法</p>
+<p>数据结构通过算法来实现操作</p>
+<p>算法根据数据结构来实现操作</p>
+<h3 id="算法的特性（确定、有穷、可行、输入、输出）"><a href="#算法的特性（确定、有穷、可行、输入、输出）" class="headerlink" title="算法的特性（确定、有穷、可行、输入、输出）"></a>算法的特性（确定、有穷、可行、输入、输出）</h3><ol>
+<li><p><code>有穷性</code>：算法在执行有限步骤之后，自动结束而不会出现无限循环，并且每一个步骤都在可接受的时间范围内完成。当然这里的有穷并不是纯数学意义的，而是在实际应用中合理的、可以接受的“边界”。你说你写一个算法，计算机需要算上20年，一定会结束，他在数学上是有穷的，媳妇都熬成婆了，算法的意义就不大了。</p>
+</li>
+<li><p><code>确定性</code>：算法的每一个步骤都有确定的含义，不会出现二义性(不会有歧义)。</p>
+</li>
+<li><p><code>可行性</code>：算法中的所有操作都可以通过已经实现的基本操作运算执行有限次来实现。</p>
+</li>
+<li><p><code>输入</code>：一个算法有零个或多个输入。当用函数描述算法时，输入往往是通过形参表示的，在它们被调用时，从主调函数获得输入值。</p>
+</li>
+<li><p><code>输出</code>：一个算法有一个或多个输出，它们是算法进行信息加工后得到的结果，无输出的算法没有任何意义。当用函数描述算法时，输出多用返回值或引用类型的形参表示。</p>
+</li>
+</ol>
+<h3 id="算法的设计要求"><a href="#算法的设计要求" class="headerlink" title="算法的设计要求"></a>算法的设计要求</h3><p><code>好的算法应该具有正确性、可读性、健壮性、时间效率高和存储量低的特征。</code></p>
+<ol>
+<li><p><code>正确性(Correctness)</code>：能正确地反映问题的需求，能得到正确的答案。</p>
+<p>分以下四个层次：</p>
+<ul>
+<li>算法程序没有语法错误；</li>
+<li>算法程序对n组输入产生正确的结果；</li>
+<li>算法程序对典型、苛刻、有刁难性的几组输入可以产生正确的结果；</li>
+<li>算法程序对所有输入产生正确的结果；</li>
+</ul>
+<p>但我们不可能逐一的验证所有的输入，因此算法的正确性在大多数情况下都不可能用程序证明，而是用数学方法证明。所以一般情况下我们把层次3作为算法是否正确的标准。</p>
+</li>
+<li><p><code>可读性(Readability)</code>：算法，首先应便于人们理解和相互交流，其次才是机器可执行性。可读性强的算法有助于人们对算法的理解，而难懂的算法易于隐藏错误，且难于调试和修改。</p>
+</li>
+<li><p><code>健壮性(Robustness)</code>：当输入的数据非法时，好的算法能适当地做出正确反应或进行相应处理，而不会产生一些莫名其妙的输出结果。【健壮性又叫又名鲁棒性即使用棒子粗鲁地对待他也可以执行类似于Java预料到可能出现的异常并对其进行捕获处理】</p>
+</li>
+<li><p><code>高效性(Efficiency)</code>：时间效率高和存储量低</p>
+</li>
+</ol>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><h3 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h3><p>算法分析的目的是看算法实际是否可行，并在同一问题存在多个算法时可进行性能上的比较，以便从中挑选出比较优的算法。</p>
+<p><code>(时间效率)运行时间的长短和(空间效率)占用内存空间的大小是衡量算法好坏的重要因素。</code></p>
+<p><code>衡量算法时间效率的方法主要有两类：事后统计法和事前分析估算法。</code></p>
+<p>事后统计法需要先将算法实现，然后测算其时间和空间开销。这种方法的缺陷很显然，<strong>一是</strong>必须把算法转换成可执行的程序，如果编辑出来发现它根本是很糟的算法，不是竹篮打水一场空吗？<strong>二是</strong>时空开销的测算结果依赖于计算机的软硬件等环境因素，这容易掩盖算法本身的优劣。<strong>三是</strong>算法的测试数据设计困难，并且程序的运行时间往往还与测试数据的规模有很大关系，效率高的算法在小的测试数据面前往往得不到体现。比如10个数字的排序，不管用什么算法，差异几乎是零。而如果有一百万个随机数字排序，那不同算法的差异就非常大了。那么我们为了比较算法，到底用多少数据来测试，这是很难判断的问题。所以我们通常采用事前分析估算法。</p>
+<p>一个算法的执行时间大致上等于其所有语句执行时间的总和，而语句的执行时间则为该条语句的重复执行次数和执行一次所需时间的乘积。一条语句的重复执行次数称作<code>语句频度(FrequencyCount)</code>。语句的执行要由源程序经编译程序翻译成目标代码，目标代码经装配再执行，因此语句执行一次实际所需的具体时间是与机器的软、硬件环境（如机器速度、编译程序质量等）密切相关的。设每条语句执行一次所需的时间均是单位时间，则一个算法的执行时间可用该算法中所有语句频度之和来度量。所谓的算法分析并非精确统计算法实际执行所需时间，而是针对算法中语句的执行次数做出估计，从中得到算法执行时间的信息。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;                          <span class="comment">//频度为n+1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;                      <span class="comment">//频度为n*(n+1)</span></span><br><span class="line">        c[i][j] = <span class="number">0</span>;                                    <span class="comment">//频度为n²</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k++) &#123;                  <span class="comment">//频度为n²*(n+1)</span></span><br><span class="line">            c[i][j] = c[i][j] + a[i][k] * b[k][j];      <span class="comment">//频度为n³</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>【i从1~n首先判断条件是否成立，条件满足执行循环体并i++，i&#x3D;n+1判断条件是否成立条件不满足，退出循环，判断n+1次循环体执行了n次】</p>
+<p>该算法中所有语句频度之和，是矩阵阶数<em>n</em>的函数，用*f(n)<em>表示之。换句话说，上例算法的执行时间与</em>(n)*成正比。</p>
+<p><em>f(n)&#x3D;2n³+3n²+2n+1</em></p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span>;</span><br><span class="line">y = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;          <span class="comment">//0~n+1判断了n+2次</span></span><br><span class="line">    x++;                                <span class="comment">//n+1次</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;      <span class="comment">//1~n+1判断了n+1次,(n+1)*(n+1)</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k++) &#123;  <span class="comment">//1~n+1判断了n+1次,(n+1)*n*(n+1)</span></span><br><span class="line">            y++;                        <span class="comment">//1~n+1判断了n+1次,n*(n+1)*n</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://cyberczy.github.io">崽🐏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://cyberczy.github.io/post/626830b9.html">https://cyberczy.github.io/post/626830b9.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cyberczy.github.io" target="_blank">崽🐏的小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></div><div class="post_share"><div class="social-share" data-image="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/b06cc6ec.html"><img class="next-cover" src="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据结构绪论</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/b06cc6ec.html" title="数据结构绪论"><img class="cover" src="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-14</div><div class="title">数据结构绪论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">崽🐏</div><div class="author-info__description">愿每时每刻都有奇思妙想</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Cyberczy"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="tencent://message/?uin=1820563215" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://github.com/Cyberczy" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/319172074" target="_blank" title="哔哩哔哩"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561199217872177/" target="_blank" title="steam"><i class="fab fa-steam"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">按上方按钮联系我</div></div><div class="xpand" style="height:200px;"><canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas></div><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople1.js"></script><script src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/zdog.dist.js"></script><script id="rendered-js" src="https://fastly.jsdelivr.net/gh/xiaopengand/blogCdn@latest/xzxr/twopeople.js"></script><style>.card-widget.card-announcement {
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  cursor: move;
+}</style><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">数据结构算法与算法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">算法定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">算法的描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E4%B8%8E%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">程序与算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E6%80%A7%EF%BC%88%E7%A1%AE%E5%AE%9A%E3%80%81%E6%9C%89%E7%A9%B7%E3%80%81%E5%8F%AF%E8%A1%8C%E3%80%81%E8%BE%93%E5%85%A5%E3%80%81%E8%BE%93%E5%87%BA%EF%BC%89"><span class="toc-number">1.1.4.</span> <span class="toc-text">算法的特性（确定、有穷、可行、输入、输出）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A6%81%E6%B1%82"><span class="toc-number">1.1.5.</span> <span class="toc-text">算法的设计要求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">算法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">算法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.2.2.</span> <span class="toc-text">练习</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/626830b9.html" title="数据结构算法与算法分析"><img src="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构算法与算法分析"/></a><div class="content"><a class="title" href="/post/626830b9.html" title="数据结构算法与算法分析">数据结构算法与算法分析</a><time datetime="2022-08-18T15:22:16.000Z" title="发表于 2022-08-18 23:22:16">2022-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/b06cc6ec.html" title="数据结构绪论"><img src="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构绪论"/></a><div class="content"><a class="title" href="/post/b06cc6ec.html" title="数据结构绪论">数据结构绪论</a><time datetime="2022-08-14T07:40:43.000Z" title="发表于 2022-08-14 15:40:43">2022-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/bd30d78.html" title="JavaSE笔记（二）"><img src="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaSE笔记（二）"/></a><div class="content"><a class="title" href="/post/bd30d78.html" title="JavaSE笔记（二）">JavaSE笔记（二）</a><time datetime="2022-08-12T16:00:00.000Z" title="发表于 2022-08-13 00:00:00">2022-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/cb9cca01.html" title="服务器搭建"><img src="/../img/fuwuqidajian/bba1cd11728b4710b912a0578584d4fdfc039245855c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="服务器搭建"/></a><div class="content"><a class="title" href="/post/cb9cca01.html" title="服务器搭建">服务器搭建</a><time datetime="2022-08-12T12:09:07.000Z" title="发表于 2022-08-12 20:09:07">2022-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/3bc5e1a0.html" title="JavaSE笔记（一）"><img src="https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaSE笔记（一）"/></a><div class="content"><a class="title" href="/post/3bc5e1a0.html" title="JavaSE笔记（一）">JavaSE笔记（一）</a><time datetime="2022-07-28T16:00:00.000Z" title="发表于 2022-07-29 00:00:00">2022-07-29</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://static001.geekbang.org/infoq/78/78d9c25842d1722a9a61b028617743bb.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By 崽🐏</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="7293284856" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-listfolded="true"> </div><script src="https://7463-tcb-l3wefjaj54c720-9dkwsfee74c2b-1313273674.tcb.qcloud.la/live2dcubismcore.min.js"></script><script src="https://7463-tcb-l3wefjaj54c720-9dkwsfee74c2b-1313273674.tcb.qcloud.la/pixi.min.js"></script><script src="https://7463-tcb-l3wefjaj54c720-9dkwsfee74c2b-1313273674.tcb.qcloud.la/cubism4.min.js"></script><script src="https://7463-tcb-l3wefjaj54c720-9dkwsfee74c2b-1313273674.tcb.qcloud.la/pio.js"></script><script src="https://7463-tcb-l3wefjaj54c720-9dkwsfee74c2b-1313273674.tcb.qcloud.la/pio_sdk4.js"></script><script src="https://7463-tcb-l3wefjaj54c720-9dkwsfee74c2b-1313273674.tcb.qcloud.la/load.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
