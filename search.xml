@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Linux与Windows实现文件共享</title>
+      <link href="/post/916665e3.html"/>
+      <url>/post/916665e3.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux与Windows实现文件共享"><a href="#Linux与Windows实现文件共享" class="headerlink" title="Linux与Windows实现文件共享"></a>Linux与Windows实现文件共享</h1><h3 id="使用软件：-Samba"><a href="#使用软件：-Samba" class="headerlink" title="使用软件： Samba"></a>使用软件： Samba</h3><h3 id="演示系统：Ubuntu20-04-3-LTS"><a href="#演示系统：Ubuntu20-04-3-LTS" class="headerlink" title="演示系统：Ubuntu20.04.3 LTS"></a>演示系统：Ubuntu20.04.3 LTS</h3><h3 id="环境：局域网连接，服务器内网ip固定"><a href="#环境：局域网连接，服务器内网ip固定" class="headerlink" title="环境：局域网连接，服务器内网ip固定"></a>环境：局域网连接，服务器内网ip固定</h3><h3 id="安装流程："><a href="#安装流程：" class="headerlink" title="安装流程："></a>安装流程：</h3><h5 id="1-获取apt软件包"><a href="#1-获取apt软件包" class="headerlink" title="1.获取apt软件包"></a>1.获取apt软件包</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba samba-common</span><br></pre></td></tr></table></figure><p>这里包含两个包，一个是samba本体一个是相关工具包</p><p>附卸载命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove samba</span><br></pre></td></tr></table></figure><p><img src="/../img/LinuxheWinwenjiangongxiang/2022-08-19_17-10_1.png"></p><p><img src="/../img/LinuxheWinwenjiangongxiang/2022-08-19_17-10.png"></p><h5 id="2-建立一个共享用的samba访问目录，并提升目录的权限"><a href="#2-建立一个共享用的samba访问目录，并提升目录的权限" class="headerlink" title="2.建立一个共享用的samba访问目录，并提升目录的权限"></a>2.建立一个共享用的samba访问目录，并提升目录的权限</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /home/rouphy/workspace<span class="comment"># 创建目录</span></span><br><span class="line"><span class="built_in">chmod</span> 777 /home/rouphy/workspace<span class="comment"># 提权</span></span><br></pre></td></tr></table></figure><p>这里以我个人用户名 <em>rouphy</em> 为例创建，下文同理</p><h5 id="3-为samba服务添加用户"><a href="#3-为samba服务添加用户" class="headerlink" title="3. 为samba服务添加用户"></a>3. 为samba服务添加用户</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -arouphy</span><br></pre></td></tr></table></figure><p>此时窗口会要求设置Samba的密码，为方便记忆，推荐设置为与系统账户一致</p><h5 id="4-配置smb-conf"><a href="#4-配置smb-conf" class="headerlink" title="4.配置smb.conf"></a>4.配置smb.conf</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/samba/smb.conf</span><br></pre></td></tr></table></figure><p>用<strong>vi</strong>或者是<strong>gedit</strong>打开<code>/etc/samba/</code>路径下的<code>smb.conf</code>文件，在文件最末尾添加以下内容</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment=This is samba dir</span><br><span class="line">path=/home/rouphy/workspace</span><br><span class="line">create mask=0755</span><br><span class="line">directory mask=0755</span><br><span class="line">writeable=yes</span><br><span class="line">valid users=rouphy</span><br><span class="line">browseable=yes</span><br></pre></td></tr></table></figure><p>其中<strong>path</strong>后面的路径即是事先创建并提权的共享目录，<strong>valid user</strong>是访问Samba的用户名，配置完成之后保存即可<br><img src="/../img/LinuxheWinwenjiangongxiang/2022-08-19_17-07_1.png"></p><h5 id="5-重启Samba服务"><a href="#5-重启Samba服务" class="headerlink" title="5.重启Samba服务"></a>5.重启Samba服务</h5><p>在配置smb.conf文件后需要重启Samba服务才能生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/smbd restart</span><br></pre></td></tr></table></figure><p>或者手动停止和启动</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/samba stop</span><br><span class="line">sudo /etc/init.d/samba start</span><br></pre></td></tr></table></figure><h5 id="6-在Windows下访问共享目录"><a href="#6-在Windows下访问共享目录" class="headerlink" title="6.在Windows下访问共享目录"></a>6.在Windows下访问共享目录</h5><p>win+r呼出运行窗口输入服务器IP地址</p><p><img src="/../img/LinuxheWinwenjiangongxiang/image-20220819174928595.png"></p><p>点击确定即可访问共享目录</p><h5 id="附：小优化"><a href="#附：小优化" class="headerlink" title="附：小优化"></a>附：小优化</h5><p>Ubuntu系统下找不到共享文件夹？在桌面创建一个软连接罢！</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/桌面/share/</span><br><span class="line"><span class="built_in">ln</span> -sd/home/rouphy/workspace/~/桌面/share/</span><br></pre></td></tr></table></figure><p><img src="/../img/LinuxheWinwenjiangongxiang/2022-08-19_17-05.png"></p><p>创建完成后就可以在桌面上快速进入共享文件夹了</p><p>Windows也可以创建网络快捷方式到桌面，但在连接的时候记得勾选<em>记住凭证</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据结构算法与算法分析</title>
       <link href="/post/626830b9.html"/>
       <url>/post/626830b9.html</url>
@@ -95,9 +122,11 @@
       
         <tags>
             
-            <tag> 服务器 </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> 服务器 </tag>
             
         </tags>
       
